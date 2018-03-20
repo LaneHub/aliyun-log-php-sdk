@@ -3,6 +3,8 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
+namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Aliyun_Log_Models_Machine;
 
 require_once realpath(dirname(__FILE__) . '/Response.php');
 

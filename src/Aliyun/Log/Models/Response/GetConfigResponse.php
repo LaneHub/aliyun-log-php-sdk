@@ -3,9 +3,11 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
+namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Aliyun_Log_Models_Config_InputDetail;
+use Aliyun\Log\Models\Aliyun_Log_Models_Config;
 
-require_once realpath(dirname(__FILE__) . '/Response.php');
-require_once realpath(dirname(__FILE__) . '/Config.php');
+//require_once realpath(dirname(__FILE__) . '/Config.php');
 /**
  * The response of the GetLog API from log service.
  *

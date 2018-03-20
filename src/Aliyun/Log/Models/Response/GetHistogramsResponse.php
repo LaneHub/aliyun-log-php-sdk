@@ -4,11 +4,8 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-
-
-require_once realpath(dirname(__FILE__) . '/Response.php');
-require_once realpath(dirname(__FILE__) . '/Histogram.php');
-
+namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Aliyun_Log_Models_Histogram;
 /**
  * The response of the GetHistograms API from log service.
  *

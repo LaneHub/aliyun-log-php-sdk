@@ -3,12 +3,13 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
+namespace  Aliyun\Log;
+use Aliyun\Log\Aliyun_Log_Exception;
 date_default_timezone_set ( 'Asia/Shanghai' );
-
-require_once realpath ( dirname ( __FILE__ ) . '/../../Log_Autoload.php' );
-require_once realpath ( dirname ( __FILE__ ) . '/requestcore.class.php' );
-require_once realpath ( dirname ( __FILE__ ) . '/sls.proto.php' );
-require_once realpath ( dirname ( __FILE__ ) . '/protocolbuffers.inc.php' );
+//require_once realpath ( dirname ( __FILE__ ) . '/../../Log_Autoload.php' );
+//require_once realpath ( dirname ( __FILE__ ) . '/requestcore.class.php' );
+//require_once realpath ( dirname ( __FILE__ ) . '/sls.proto.php' );
+//require_once realpath ( dirname ( __FILE__ ) . '/protocolbuffers.inc.php' );
 
 if(!defined('API_VERSION'))
     define('API_VERSION', '0.6.0');
@@ -155,7 +156,7 @@ class Aliyun_Log_Client {
         try {
             list ( $responseCode, $header, $resBody ) = 
                     $this->getHttpResponse ( $method, $url, $body, $headers );
-        } catch ( Exception $ex ) {
+        } catch ( \Exception $ex ) {
             throw new Aliyun_Log_Exception ( $ex->getMessage (), $ex->__toString () );
         }
         
@@ -277,7 +278,7 @@ class Aliyun_Log_Client {
         list ( $resp, $header ) = $this->send ( "POST", $project, $body, $resource, $params, $headers );
         $requestId = isset ( $header ['x-log-requestid'] ) ? $header ['x-log-requestid'] : '';
         $resp = $this->parseToJson ( $resp, $requestId );
-        return new Aliyun_Log_Models_PutLogsResponse ( $header );
+        return new \Aliyun_Log_Models_PutLogsResponse ( $header );
     }
 
     /**

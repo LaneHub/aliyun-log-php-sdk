@@ -3,6 +3,7 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
+namespace  Aliyun\Log\Models\LogLevel;
 
 class Aliyun_Log_Models_LogLevel_LogLevel{
     const debug = 'debug';

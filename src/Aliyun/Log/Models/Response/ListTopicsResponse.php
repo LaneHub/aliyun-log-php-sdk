@@ -4,9 +4,8 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-
-require_once realpath(dirname(__FILE__) . '/Response.php');
-
+namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
 /**
  * The response of the ListTopics API from log service.
  *

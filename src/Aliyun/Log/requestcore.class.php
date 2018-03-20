@@ -1,4 +1,6 @@
 <?php
+namespace  Aliyun\Log;
+
 /**
  * Handles all HTTP requests using cURL and manages the responses.
  *
@@ -1023,4 +1025,4 @@ class ResponseCore
 /**
  * Default RequestCore Exception.
  */
-class RequestCore_Exception extends Exception {}
+class RequestCore_Exception extends \Exception {}

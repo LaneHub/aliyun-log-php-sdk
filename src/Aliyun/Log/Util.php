@@ -4,6 +4,7 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
+namespace  Aliyun\Log;
 
 class Aliyun_Log_Util {
 

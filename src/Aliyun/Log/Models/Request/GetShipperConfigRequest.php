@@ -3,8 +3,8 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
+namespace Aliyun\Log\Models\Request;
 
-require_once realpath(dirname(__FILE__) . '/Request.php');
 
 class Aliyun_Log_Models_GetShipperConfigRequest extends Aliyun_Log_Models_Request {
     private $shipperName;

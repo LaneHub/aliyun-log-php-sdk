@@ -3,8 +3,8 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-
-require_once realpath(dirname(__FILE__) . '/Response.php');
+namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Aliyun_Log_Models_ACL;
 
 /**
  * The response of the GetLog API from log service.
