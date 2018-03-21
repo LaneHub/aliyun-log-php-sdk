@@ -3,96 +3,12 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace  Aliyun\Log;
-use Aliyun\Log\Aliyun_Log_Exception;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_PutLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_CreateShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_UpdateShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetShipperTasksRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_RetryShipperTasksRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetShipperConfigRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_CreateLogstoreRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListLogstoresRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_UpdateLogstoreRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListTopicsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteLogstoreRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetHistogramsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_BatchGetLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListShardsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_SplitShardRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_MergeShardsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteShardRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetCursorRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_CreateConfigRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_UpdateConfigRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetConfigRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteConfigRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListConfigsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_CreateMachineGroupRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_UpdateMachineGroupRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetMachineGroupRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteMachineGroupRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListMachineGroupsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ApplyConfigToMachineGroupRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListACLsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteACLRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetACLRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_UpdateACLRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_CreateACLRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetMachineRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_RemoveConfigFromMachineGroupRequest;
-
-
-
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_PutLogsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_CreateShipperResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_UpdateShipperResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetShipperTasksResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_RetryShipperTasksResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_DeleteShipperResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetShipperConfigResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListShipperResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_CreateLogstoreResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_UpdateLogstoreResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListLogstoresResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListTopicsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_DeleteLogstoreResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetHistogramsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetLogsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_BatchGetLogsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListShardsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_DeleteShardResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetCursorResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_CreateConfigResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_UpdateConfigResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetConfigResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_DeleteConfigResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListConfigsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_CreateMachineGroupResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_UpdateMachineGroupResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetMachineGroupResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_DeleteMachineGroupResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListMachineGroupsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ApplyConfigToMachineGroupResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_ListACLsResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_DeleteACLResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetACLResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_UpdateACLResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_CreateACLResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetMachineResponse;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_RemoveConfigFromMachineGroupResponse;
-
-use Aliyun\Log\RequestCore;
-use Aliyun\Log\Log_Content;
-use Aliyun\Log\ProtobufEnum;
 date_default_timezone_set ( 'Asia/Shanghai' );
+
 require_once realpath ( dirname ( __FILE__ ) . '/../../Log_Autoload.php' );
-//require_once realpath ( dirname ( __FILE__ ) . '/requestcore.class.php' );
-//require_once realpath ( dirname ( __FILE__ ) . '/sls.proto.php' );
-//require_once realpath ( dirname ( __FILE__ ) . '/protocolbuffers.inc.php' );
+require_once realpath ( dirname ( __FILE__ ) . '/requestcore.class.php' );
+require_once realpath ( dirname ( __FILE__ ) . '/sls.proto.php' );
+require_once realpath ( dirname ( __FILE__ ) . '/protocolbuffers.inc.php' );
 
 if(!defined('API_VERSION'))
     define('API_VERSION', '0.6.0');
@@ -239,7 +155,7 @@ class Aliyun_Log_Client {
         try {
             list ( $responseCode, $header, $resBody ) = 
                     $this->getHttpResponse ( $method, $url, $body, $headers );
-        } catch ( \Exception $ex ) {
+        } catch ( Exception $ex ) {
             throw new Aliyun_Log_Exception ( $ex->getMessage (), $ex->__toString () );
         }
         

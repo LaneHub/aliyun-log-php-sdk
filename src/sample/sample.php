@@ -3,22 +3,9 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace sample;
+
 require_once realpath(dirname(__FILE__) . '/../Log_Autoload.php');
-use Aliyun\Log\Aliyun_Log_Client;
-use Aliyun\Log\Models\Aliyun_Log_Models_LogItem;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_PutLogsRequest;
-use  Aliyun\Log\Aliyun_Log_Exception;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListLogstoresRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListTopicsRequest;
-use  Aliyun\Log\Models\Request\Aliyun_Log_Models_GetLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetHistogramsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListShardsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetCursorRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_BatchGetLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteShardRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_MergeShardsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_SplitShardRequest;
+
 function putLogs(Aliyun_Log_Client $client, $project, $logstore) {
     $topic = 'TestTopic';
     
@@ -37,7 +24,7 @@ function putLogs(Aliyun_Log_Client $client, $project, $logstore) {
         logVarDump($response);
     } catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -49,7 +36,7 @@ function listLogstores(Aliyun_Log_Client $client, $project) {
         logVarDump($response);
     } catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -87,7 +74,7 @@ function getLogs(Aliyun_Log_Client $client, $project, $logstore) {
 
     } catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -103,7 +90,7 @@ function getHistograms(Aliyun_Log_Client $client, $project, $logstore) {
         logVarDump($response);
     } catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -115,7 +102,7 @@ function listShard(Aliyun_Log_Client $client,$project,$logstore){
         logVarDump($response);
     } catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -166,7 +153,7 @@ function deleteShard(Aliyun_Log_Client $client,$project,$logstore,$shardId)
         logVarDump($response);
     }catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -179,7 +166,7 @@ function mergeShard(Aliyun_Log_Client $client,$project,$logstore,$shardId)
         logVarDump($response);
     }catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }
@@ -192,7 +179,7 @@ function splitShard(Aliyun_Log_Client $client,$project,$logstore,$shardId,$midHa
         logVarDump($response);
     }catch (Aliyun_Log_Exception $ex) {
         logVarDump($ex);
-    } catch (\Exception $ex) {
+    } catch (Exception $ex) {
         logVarDump($ex);
     }
 }

@@ -8,8 +8,6 @@ $version = '0.6.0';
 
 function Aliyun_Log_PHP_Client_Autoload($className) {
     $classPath = explode('_', $className);
-    $name = substr($classPath[0],-6);
-    $classPath[0] = $name;
     if ($classPath[0] == 'Aliyun') {
         if(count($classPath)>5)
             $classPath = array_slice($classPath, 0, 5);

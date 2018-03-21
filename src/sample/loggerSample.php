@@ -6,27 +6,10 @@
 
 require_once realpath(dirname(__FILE__) . '/../Log_Autoload.php');
 
-use Aliyun\Log\Aliyun_Log_Client;
-use Aliyun\Log\Aliyun_Log_LoggerFactory;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetShipperTasksRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_RetryShipperTasksRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_UpdateShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_DeleteShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_CreateShipperRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListShardsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_PutLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetLogsRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_GetShipperConfigRequest;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_ListShipperRequest;
-use Aliyun\Log\Models\Aliyun_Log_Models_OssShipperStorage;
-use Aliyun\Log\Models\Aliyun_Log_Models_OssShipperConfig;
-use Aliyun\Log\Models\Aliyun_Log_Models_OssShipperCsvStorage;
-use Aliyun\Log\Models\Aliyun_Log_Models_LogItem;
-use Aliyun\Log\Models\Aliyun_Log_Models_OssShipperParquetStorage;
-use Aliyun\Log\Models\Aliyun_Log_Models_OssShipperJsonStorage;
-use Aliyun\Log\Aliyun_Log_Exception;
+
+
 // please update the configuration according your profile
-$endpoint = '';
+$endpoint = ''
 $accessKeyId = '';
 $accessKey = '';
 $project = 'ali-sls-sdk-test';

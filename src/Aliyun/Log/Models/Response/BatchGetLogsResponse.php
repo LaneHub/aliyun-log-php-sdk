@@ -3,13 +3,10 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace Aliyun\Log\Models\Response;
-use Aliyun\Log\Log_Content;
-use Aliyun\Log\ProtobufEnum;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
 
-//require_once realpath ( dirname ( __FILE__ ) . '/../sls.proto.php' );
-//require_once realpath ( dirname ( __FILE__ ) . '/../protocolbuffers.inc.php' );
+require_once realpath(dirname(__FILE__) . '/Response.php');
+require_once realpath ( dirname ( __FILE__ ) . '/../sls.proto.php' );
+require_once realpath ( dirname ( __FILE__ ) . '/../protocolbuffers.inc.php' );
 /**
  * The response of the GetLog API from log service.
  *
@@ -55,7 +52,7 @@ class Aliyun_Log_Models_BatchGetLogsResponse extends Aliyun_Log_Models_Response 
             return $this->logPackageList[$index];
         }
         else{
-            throw new \OutOfBoundsException('Index must less than size of logPackageList');
+            throw new OutOfBoundsException('Index must less than size of logPackageList');
         }
     }
 
@@ -68,7 +65,7 @@ class Aliyun_Log_Models_BatchGetLogsResponse extends Aliyun_Log_Models_Response 
             return  $this->logPackageList[$index];
         }
         else{
-            throw new \OutOfBoundsException('Index must less than size of logPackageList');
+            throw new OutOfBoundsException('Index must less than size of logPackageList');
         }
     }
 

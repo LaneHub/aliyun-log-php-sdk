@@ -1,7 +1,6 @@
 <?php
 // Please include the below file before sls_logs.proto.php
 //require('protocolbuffers.inc.php');
-namespace  Aliyun\Log;
 
 // message Log.Content
 class Log_Content {
@@ -16,7 +15,7 @@ class Log_Content {
       } else if (is_resource($in)) {
         $fp = $in;
       } else {
-        throw new \Exception('Invalid in parameter');
+        throw new Exception('Invalid in parameter');
       }
       $this->read($fp, $limit);
     }
@@ -34,13 +33,13 @@ class Log_Content {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           if ($len > 0)
             $tmp = fread($fp, $len);
           else
             $tmp = '';
           if ($tmp === false)
-            throw new \Exception("fread($len) returned false");
+            throw new Exception("fread($len) returned false");
           $this->key_ = $tmp;
           $limit-=$len;
           break;
@@ -48,13 +47,13 @@ class Log_Content {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           if ($len > 0)
             $tmp = fread($fp, $len);
           else
             $tmp = '';
           if ($tmp === false)
-            throw new \Exception("fread($len) returned false");
+            throw new Exception("fread($len) returned false");
           $this->value_ = $tmp;
           $limit-=$len;
           break;
@@ -63,12 +62,12 @@ class Log_Content {
       }
     }
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
   }
 
   function write($fp) {
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
     if (!is_null($this->key_)) {
       fwrite($fp, "\x0a");
       Protobuf::write_varint($fp, strlen($this->key_));
@@ -139,7 +138,7 @@ class Log {
       } else if (is_resource($in)) {
         $fp = $in;
       } else {
-        throw new \Exception('Invalid in parameter');
+        throw new Exception('Invalid in parameter');
       }
       $this->read($fp, $limit);
     }
@@ -157,7 +156,7 @@ class Log {
           ASSERT('$wire == 0');
           $tmp = Protobuf::read_varint($fp, $limit);
           if ($tmp === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           $this->time_ = $tmp;
 
           break;
@@ -165,7 +164,7 @@ class Log {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           $limit-=$len;
           $this->contents_[] = new Log_Content($fp, $len);
           ASSERT('$len == 0');
@@ -175,12 +174,12 @@ class Log {
       }
     }
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
   }
 
   function write($fp) {
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
     if (!is_null($this->time_)) {
       fwrite($fp, "\x08");
       Protobuf::write_varint($fp, $this->time_);
@@ -253,7 +252,7 @@ class LogGroup {
       } else if (is_resource($in)) {
         $fp = $in;
       } else {
-        throw new \Exception('Invalid in parameter');
+        throw new Exception('Invalid in parameter');
       }
       $this->read($fp, $limit);
     }
@@ -271,7 +270,7 @@ class LogGroup {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           $limit-=$len;
           $this->logs_[] = new Log($fp, $len);
           ASSERT('$len == 0');
@@ -280,13 +279,13 @@ class LogGroup {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           if ($len > 0)
             $tmp = fread($fp, $len);
           else
             $tmp = '';
           if ($tmp === false)
-            throw new \Exception("fread($len) returned false");
+            throw new Exception("fread($len) returned false");
           $this->category_ = $tmp;
           $limit-=$len;
           break;
@@ -294,13 +293,13 @@ class LogGroup {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           if ($len > 0)
             $tmp = fread($fp, $len);
           else
             $tmp = '';
           if ($tmp === false)
-            throw new \Exception("fread($len) returned false");
+            throw new Exception("fread($len) returned false");
           $this->topic_ = $tmp;
           $limit-=$len;
           break;
@@ -308,13 +307,13 @@ class LogGroup {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           if ($len > 0)
             $tmp = fread($fp, $len);
           else
             $tmp = '';
           if ($tmp === false)
-            throw new \Exception("fread($len) returned false");
+            throw new Exception("fread($len) returned false");
           $this->source_ = $tmp;
           $limit-=$len;
           break;
@@ -323,12 +322,12 @@ class LogGroup {
       }
     }
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
   }
 
   function write($fp) {
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
     if (!is_null($this->logs_))
       foreach($this->logs_ as $v) {
         fwrite($fp, "\x0a");
@@ -438,7 +437,7 @@ class LogGroupList {
       } else if (is_resource($in)) {
         $fp = $in;
       } else {
-        throw new \Exception('Invalid in parameter');
+        throw new Exception('Invalid in parameter');
       }
       $this->read($fp, $limit);
     }
@@ -456,7 +455,7 @@ class LogGroupList {
           ASSERT('$wire == 2');
           $len = Protobuf::read_varint($fp, $limit);
           if ($len === false)
-            throw new \Exception('Protobuf::read_varint returned false');
+            throw new Exception('Protobuf::read_varint returned false');
           $limit-=$len;
           $this->logGroupList_[] = new LogGroup($fp, $len);
           ASSERT('$len == 0');
@@ -466,12 +465,12 @@ class LogGroupList {
       }
     }
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
   }
 
   function write($fp) {
     if (!$this->validateRequired())
-      throw new \Exception('Required fields are missing');
+      throw new Exception('Required fields are missing');
     if (!is_null($this->logGroupList_))
       foreach($this->logGroupList_ as $v) {
         fwrite($fp, "\x0a");

@@ -3,7 +3,6 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace Aliyun\Log\Models;
 
 /**
  * Aliyun_Log_Models_CompressedLogGroup is compressed LogGroup, 

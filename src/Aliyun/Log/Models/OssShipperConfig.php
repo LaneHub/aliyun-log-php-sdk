@@ -3,7 +3,6 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace Aliyun\Log\Models;
 
 class Aliyun_Log_Models_OssShipperConfig{
 
@@ -126,7 +125,7 @@ class Aliyun_Log_Models_OssShipperConfig{
     public function setBufferSize($bufferSize)
     {
         if($bufferSize > 256 || $bufferSize < 5){
-            throw new \Exception("buffSize is not valide, must between 5 and 256");
+            throw new Exception("buffSize is not valide, must between 5 and 256");
         }
         $this->bufferSize = $bufferSize;
     }

@@ -3,10 +3,7 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace  Aliyun\Log;
-use Aliyun\Log\Models\LogLevel\Aliyun_Log_Models_LogLevel_LogLevel;
-use Aliyun\Log\Models\Aliyun_Log_Models_LogItem;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_PutLogsRequest;
+
 /**
  * Class Aliyun_Log_SimpleLogger
  * a wrapper for submit log message to server, to avoid post log frequently, using a internal cache for messages
@@ -103,7 +100,7 @@ class Aliyun_Log_SimpleLogger{
             $this->maxWaitTime = $maxWaitTime;
         }
         if($client == null || $project == null || $logstore == null){
-            throw new \Exception('the input parameter is invalid! create SimpleLogger failed!');
+            throw new Exception('the input parameter is invalid! create SimpleLogger failed!');
         }
         $this->client = $client;
         $this->project = $project;
@@ -138,7 +135,7 @@ class Aliyun_Log_SimpleLogger{
      */
     private function logSingleMessage(Aliyun_Log_Models_LogLevel_LogLevel $logLevel, $logMessage){
         if(is_array($logMessage)){
-            throw new \Exception('array is not supported in this function, please use logArrayMessage!');
+            throw new Exception('array is not supported in this function, please use logArrayMessage!');
         }
         $cur_time = time();
         $contents = array( // key-value pair
@@ -161,7 +158,7 @@ class Aliyun_Log_SimpleLogger{
      */
     private function logArrayMessage(Aliyun_Log_Models_LogLevel_LogLevel $logLevel, $logMessage){
         if(!is_array($logMessage)){
-            throw new \Exception('input message is not array, please use logSingleMessage!');
+            throw new Exception('input message is not array, please use logSingleMessage!');
         }
         $cur_time = time();
         $contents = array( // key-value pair
@@ -281,7 +278,7 @@ class Aliyun_Log_SimpleLogger{
                 return;
             } catch (Aliyun_Log_Exception $ex) {
                 $error_exception = $ex;
-            } catch (\Exception $ex) {
+            } catch (Exception $ex) {
                 var_dump($ex);
                 $error_exception = $ex;
             }

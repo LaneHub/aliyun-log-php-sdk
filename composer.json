@@ -1,6 +1,6 @@
 {
     "name": "weiheinc/aliyun-log-php-sdk",
-    "description": "aliyun mns sdk",
+    "description": "aliyun log sdk",
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",

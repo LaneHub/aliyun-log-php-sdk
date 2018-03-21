@@ -3,8 +3,7 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace Aliyun\Log\Models\Response;
-use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
+
 /**
  * The QueriedLog is a log of the Aliyun_Log_Models_GetLogsResponse which obtained from the log.
  *

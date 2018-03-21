@@ -1,5 +1,4 @@
 <?php
-namespace  Aliyun\Log;
 
 class ProtobufEnum {
 
@@ -121,7 +120,7 @@ class Protobuf {
 		do { // Keep reading until we find the last byte
 			$b = fread($fp, 1);
 			if ($b === false)
-				throw new \Exception("read_varint(): Error reading byte");
+				throw new Exception("read_varint(): Error reading byte");
 			if (strlen($b) < 1)
 				break;
 
@@ -132,7 +131,7 @@ class Protobuf {
 		if ($len == 0) {
 			if (feof($fp))
 				return false;
-			throw new \Exception("read_varint(): Error reading byte");
+			throw new Exception("read_varint(): Error reading byte");
 		}
 
 		if ($limit !== null)
@@ -148,14 +147,14 @@ class Protobuf {
 		return $i;
 	}
 
-	public static function read_double($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_float ($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_uint64($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_int64 ($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_uint32($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_int32 ($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_zint32($fp){throw new \Exception("I've not coded it yet Exception");}
-	public static function read_zint64($fp){throw new \Exception("I've not coded it yet Exception");}
+	public static function read_double($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_float ($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_uint64($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_int64 ($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_uint32($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_int32 ($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_zint32($fp){throw new Exception("I've not coded it yet Exception");}
+	public static function read_zint64($fp){throw new Exception("I've not coded it yet Exception");}
 
 	/**
 	 * Writes a varint to $fp
@@ -174,7 +173,7 @@ class Protobuf {
 				$v |= 0x80;
 
 			if (fwrite($fp, chr($v)) !== 1)
-				throw new \Exception("write_varint(): Error writing byte");
+				throw new Exception("write_varint(): Error writing byte");
 
 			$len++;
 		} while ($i != 0);
@@ -182,14 +181,14 @@ class Protobuf {
 		return $len;
 	}
 
-	public static function write_double($fp, $d){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_float ($fp, $f){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_uint64($fp, $i){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_int64 ($fp, $i){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_uint32($fp, $i){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_int32 ($fp, $i){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_zint32($fp, $i){throw new \Exception("I've not coded it yet Exception");}
-	public static function write_zint64($fp, $i){throw new \Exception("I've not coded it yet Exception");}
+	public static function write_double($fp, $d){throw new Exception("I've not coded it yet Exception");}
+	public static function write_float ($fp, $f){throw new Exception("I've not coded it yet Exception");}
+	public static function write_uint64($fp, $i){throw new Exception("I've not coded it yet Exception");}
+	public static function write_int64 ($fp, $i){throw new Exception("I've not coded it yet Exception");}
+	public static function write_uint32($fp, $i){throw new Exception("I've not coded it yet Exception");}
+	public static function write_int32 ($fp, $i){throw new Exception("I've not coded it yet Exception");}
+	public static function write_zint32($fp, $i){throw new Exception("I've not coded it yet Exception");}
+	public static function write_zint64($fp, $i){throw new Exception("I've not coded it yet Exception");}
 
 	/**
 	 * Seek past a varint
@@ -199,7 +198,7 @@ class Protobuf {
 		do { // Keep reading until we find the last byte
 			$b = fread($fp, 1);
 			if ($b === false)
-				throw new \Exception("skip(varint): Error reading byte");
+				throw new Exception("skip(varint): Error reading byte");
 			$len++;
 		} while ($b >= "\x80");
 		return $len;
@@ -215,14 +214,14 @@ class Protobuf {
 
 			case 1: // 64bit
 				if (fseek($fp, 8, SEEK_CUR) === -1)
-					throw new \Exception('skip(' . ProtoBuf::get_wiretype(1) . '): Error seeking');
+					throw new Exception('skip(' . ProtoBuf::get_wiretype(1) . '): Error seeking');
 				return 8;
 
 			case 2: // length delimited
 				$varlen = 0;
 				$len = Protobuf::read_varint($fp, $varlen);
 				if (fseek($fp, $len, SEEK_CUR) === -1)
-					throw new \Exception('skip(' . ProtoBuf::get_wiretype(2) . '): Error seeking');
+					throw new Exception('skip(' . ProtoBuf::get_wiretype(2) . '): Error seeking');
 				return $len - $varlen;
 
 			//case 3: // Start group TODO we must keep looping until we find the closing end grou
@@ -232,11 +231,11 @@ class Protobuf {
 
 			case 5: // 32bit
 				if (fseek($fp, 4, SEEK_CUR) === -1)
-					throw new \Exception('skip('. ProtoBuf::get_wiretype(5) . '): Error seeking');
+					throw new Exception('skip('. ProtoBuf::get_wiretype(5) . '): Error seeking');
 				return 4;
 
 			default:
-				throw new \Exception('skip('. ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
+				throw new Exception('skip('. ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
 		}
 	}
 
@@ -267,7 +266,7 @@ class Protobuf {
 				return fread($fp, 4);
 
 			default:
-				throw new \Exception('read_unknown('. ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
+				throw new Exception('read_unknown('. ProtoBuf::get_wiretype($wire_type) . '): Unsupported wire_type');
 		}
 	}
 

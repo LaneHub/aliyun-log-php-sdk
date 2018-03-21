@@ -4,7 +4,6 @@
  * All rights reserved
  */
 
-namespace  Aliyun\Log\Models\Response;
 /**
  * The base response class of all log response.
  *

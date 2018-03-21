@@ -3,7 +3,6 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace  Aliyun\Log;
 
 /**
  * Class Aliyun_Log_LoggerFactory

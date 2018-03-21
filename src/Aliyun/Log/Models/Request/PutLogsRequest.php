@@ -4,8 +4,9 @@
  * Copyright (C) Alibaba Cloud Computing
  * All rights reserved
  */
-namespace Aliyun\Log\Models\Request;
-use Aliyun\Log\Models\Request\Aliyun_Log_Models_Request;
+
+require_once realpath(dirname(__FILE__) . '/Request.php');
+
 /**
  * The request used to send data to log server.
  *
