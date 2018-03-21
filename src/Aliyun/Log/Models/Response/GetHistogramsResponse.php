@@ -6,6 +6,8 @@
  */
 namespace Aliyun\Log\Models\Response;
 use Aliyun\Log\Models\Aliyun_Log_Models_Histogram;
+use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
+
 /**
  * The response of the GetHistograms API from log service.
  *

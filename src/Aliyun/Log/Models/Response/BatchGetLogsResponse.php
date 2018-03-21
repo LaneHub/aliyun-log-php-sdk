@@ -6,6 +6,8 @@
 namespace Aliyun\Log\Models\Response;
 use Aliyun\Log\Log_Content;
 use Aliyun\Log\ProtobufEnum;
+use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
+
 //require_once realpath ( dirname ( __FILE__ ) . '/../sls.proto.php' );
 //require_once realpath ( dirname ( __FILE__ ) . '/../protocolbuffers.inc.php' );
 /**

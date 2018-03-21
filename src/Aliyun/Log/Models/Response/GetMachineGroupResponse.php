@@ -5,8 +5,9 @@
  */
 namespace Aliyun\Log\Models\Response;
 use Aliyun\Log\Models\Aliyun_Log_Models_MachineGroup;
+use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
 
-require_once realpath(dirname(__FILE__) . '/Response.php');
+//require_once realpath(dirname(__FILE__) . '/Response.php');
 
 /**
  * The response of the GetLog API from log service.

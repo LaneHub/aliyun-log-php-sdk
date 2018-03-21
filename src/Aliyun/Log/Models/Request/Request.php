@@ -4,6 +4,7 @@
  * All rights reserved
  */
 namespace Aliyun\Log\Models\Request;
+
 /**
  * The base request of all log request.
  *

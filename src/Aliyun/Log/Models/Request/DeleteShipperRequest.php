@@ -4,7 +4,7 @@
  * All rights reserved
  */
 namespace Aliyun\Log\Models\Request;
-
+use Aliyun\Log\Models\Request\Aliyun_Log_Models_Request;
 class Aliyun_Log_Models_DeleteShipperRequest extends Aliyun_Log_Models_Request {
     private $shipperName;
     private $logStore;

@@ -4,6 +4,8 @@
  * All rights reserved
  */
 namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
+
 
 class Aliyun_Log_Models_UpdateShipperResponse extends Aliyun_Log_Models_Response {
 

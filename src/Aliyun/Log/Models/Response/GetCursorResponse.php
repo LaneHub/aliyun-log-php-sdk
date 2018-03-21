@@ -4,6 +4,8 @@
  * All rights reserved
  */
 namespace Aliyun\Log\Models\Response;
+use Aliyun\Log\Models\Response\Aliyun_Log_Models_Response;
+
 /**
  * The response of the GetCursor API from log service.
  *
