@@ -85,6 +85,9 @@ use Aliyun\Log\Models\Response\Aliyun_Log_Models_CreateACLResponse;
 use Aliyun\Log\Models\Response\Aliyun_Log_Models_GetMachineResponse;
 use Aliyun\Log\Models\Response\Aliyun_Log_Models_RemoveConfigFromMachineGroupResponse;
 
+use Aliyun\Log\RequestCore;
+use Aliyun\Log\Log_Content;
+use Aliyun\Log\ProtobufEnum;
 date_default_timezone_set ( 'Asia/Shanghai' );
 require_once realpath ( dirname ( __FILE__ ) . '/../../Log_Autoload.php' );
 //require_once realpath ( dirname ( __FILE__ ) . '/requestcore.class.php' );
