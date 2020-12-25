@@ -1,5 +1,5 @@
 {
-    "name": "weiheinc/aliyun-log-php-sdk",
+    "name": "yuanling/aliyun-log-php-sdk",
     "description": "aliyun log sdk",
     "type": "library",
     "license": "MIT",
